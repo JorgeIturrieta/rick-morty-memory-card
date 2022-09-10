@@ -1,0 +1,104 @@
+@font-face {
+  font-family: 'Press Start 2p';
+  src: local('PressStart2p'), url('../../src/fonts/PressStart2P.ttf') format('truetype');
+}
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  // padding: 2rem;
+  text-align: center;
+  $timer: 30;
+}
+
+a {
+  font-weight: 500;
+  color: inherit;
+  text-decoration: inherit;
+}
+a:hover {
+  filter: drop-shadow(0 0 3px $green-clr);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  color: white;
+  background: url(/stars.svg), #06283d;
+}
+
+main {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  text-transform: uppercase;
+  font-family: 'Press Start 2p', sans-serif;
+  text-align: center;
+  display: inline-block;
+  margin: 5px;
+  font-weight: bold;
+  padding: 10px;
+  background-color: lightgray;
+  text-shadow: -1px -1px black, 1px 1px white;
+  color: gray;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  box-shadow: 0 0.2em gray;
+
+  cursor: pointer;
+}
+button:hover {
+  border-color: rgb(99, 156, 25);
+  color: rgb(99, 156, 25);
+}
+// button:focus,
+// button:focus-visible {
+//   outline: 4px auto -webkit-focus-ring-color;
+// }
+
+// @media (prefers-color-scheme: light) {
+//   :root {
+//     color: #213547;
+//     background-color: #ffffff;
+//   }
+//   a:hover {
+//     color: #747bff;
+//   }
+//   button {
+//     background-color: #f9f9f9;
+//   }
+// }

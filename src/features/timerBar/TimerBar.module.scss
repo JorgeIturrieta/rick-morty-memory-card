@@ -1,0 +1,24 @@
+@import '../../styles/variables';
+.container {
+  margin: 0 4rem 1rem 4rem;
+  width: 100%;
+  .timeBar {
+    height: 8px;
+    border-radius: 20px;
+    background: white;
+    filter: drop-shadow(0 0 3px $green-clr);
+    transform-origin: left center;
+    animation: roundtime calc(var(--timer) * 1ms) linear forwards;
+  }
+
+  .paused {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes roundtime {
+  to {
+    /* More performant than animating `width` */
+    transform: scaleX(0);
+  }
+}

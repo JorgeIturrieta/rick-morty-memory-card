@@ -1,0 +1,10 @@
+.controlsContainer {
+  display: flex;
+  justify-content: space-evenly;
+
+  .btnControl {
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+  }
+}

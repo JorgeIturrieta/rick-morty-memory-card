@@ -1,0 +1,33 @@
+@import '../../styles/index.scss';
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .title {
+    filter: drop-shadow(0 0 3px $green-clr);
+  }
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.fade-in {
+  animation: fadein 1.5s;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

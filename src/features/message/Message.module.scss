@@ -1,0 +1,19 @@
+.title {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: rgb(99, 156, 25);
+}
+.messageContainer {
+  font-size: 1.2rem;
+  text-align: left;
+  line-height: 1.5;
+}
+.statsContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+  .statsTitle {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+}
