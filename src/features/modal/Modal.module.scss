@@ -1,3 +1,5 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
 .container {
   position: fixed;
   top: 0;
@@ -12,10 +14,16 @@
   animation: fadeinOpacity 0.5s;
   .modalContainer {
     user-select: none;
-    padding: 2rem 3rem;
+    padding: 2rem 1.5rem;
     position: relative;
     border-radius: 8px;
-    width: 500px;
+    width: 360px;
+    margin: 0 1.5rem;
+    @include query(md) {
+      width: 500px;
+      padding: 2rem 3rem;
+    }
+
     background-color: white;
     color: black;
     animation: fadein 0.4s;

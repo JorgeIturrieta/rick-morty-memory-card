@@ -14,9 +14,9 @@ const Home = () => {
   return (
     <main>
       <div className='home-container'>
-        <h1 className='title'>Welcome to Rick and Morty Memory card Game</h1>
+        <h1 className='title'>Welcome to Rick and Morty Memory Card Game</h1>
 
-        <img className='fade-in' src={image} width={300} height={350} alt='rick-and-morty' />
+        <img className='home-img' src={image} width={300} height={350} alt='rick-and-morty' />
         <div className='btn-container'>
           <button onClick={() => setOpenModal(1)}>How to play</button>
           <button onClick={() => setOpenModal(2)}>Stats</button>
