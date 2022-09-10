@@ -5,7 +5,7 @@ import Board from '../../features/board/Board'
 import { useEffect } from 'react'
 const Stage = () => {
   useEffect(() => {
-    document.title = 'Rick and morty - Stage'
+    document.title = 'Rick and Morty - Stage'
   }, [])
 
   return (

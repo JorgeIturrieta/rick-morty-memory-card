@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { startLoadingCards } from './boardSlice'
-import './Board.scss'
+
 import useOnCompleteImage from '../../hooks/useOnCompleteImage'
 import Spinner from '../spinner/Spinner'
 import TimerBar from '../timerBar/TimerBar'

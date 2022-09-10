@@ -21,44 +21,7 @@
 }
 
 .shake {
-  animation: shake 0.5s;
-  animation-iteration-count: 2s;
-}
-
-@keyframes shake {
-  0% {
-    transform: translate(1px, 1px) rotate(0deg);
-  }
-  10% {
-    transform: translate(-1px, -2px) rotate(-1deg);
-  }
-  20% {
-    transform: translate(-3px, 0px) rotate(1deg);
-  }
-  30% {
-    transform: translate(3px, 2px) rotate(0deg);
-  }
-  40% {
-    transform: translate(1px, -1px) rotate(1deg);
-  }
-  50% {
-    transform: translate(-1px, 2px) rotate(-1deg);
-  }
-  60% {
-    transform: translate(-3px, 1px) rotate(0deg);
-  }
-  70% {
-    transform: translate(3px, 1px) rotate(-1deg);
-  }
-  80% {
-    transform: translate(-1px, -1px) rotate(1deg);
-  }
-  90% {
-    transform: translate(1px, 2px) rotate(0deg);
-  }
-  100% {
-    transform: translate(1px, -2px) rotate(-1deg);
-  }
+  @include shakeAnimation();
 }
 
 .card-container {
@@ -72,7 +35,7 @@
 .card-content {
   width: 100%;
   height: 100%;
-  transition: transform 0.4s;
+  transition: transform 0.3s;
   box-shadow: 0 0 15px rgba(156, 36, 36, 0.1);
   transform-style: preserve-3d;
 }
@@ -115,7 +78,6 @@
 
 .card-flipped {
   transform: rotateY(180deg);
-  // transition: transform 1.5seg;
 }
 
 .score,

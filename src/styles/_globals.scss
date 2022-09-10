@@ -80,11 +80,12 @@ button {
   box-shadow: 0 0.2em gray;
 
   cursor: pointer;
+  &:hover {
+    border-color: rgb(99, 156, 25);
+    color: rgb(99, 156, 25);
+  }
 }
-button:hover {
-  border-color: rgb(99, 156, 25);
-  color: rgb(99, 156, 25);
-}
+
 // button:focus,
 // button:focus-visible {
 //   outline: 4px auto -webkit-focus-ring-color;
