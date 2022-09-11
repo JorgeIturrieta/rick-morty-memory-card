@@ -23,10 +23,10 @@ const ListCards: FunctionComponent<ListCardsProps> = ({ loading, onComplete }) =
         >
           <div className={`card-content  ${card.flipped ? 'card-flipped ' : ''}`}>
             <div className={'card-front'}>
-              <FrontCard width={80} height={150} fill={'white'} />
+              <FrontCard width={60} height={60} fill={'white'} />
             </div>
             <div className={'card-back'}>
-              <p>{card.name}</p>
+              <span>{card.name}</span>
               <img src={card.image} alt={card.name} onLoad={onComplete} onError={onComplete} />
             </div>
           </div>

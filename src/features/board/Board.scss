@@ -2,9 +2,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 0 4rem;
+  padding: 0;
   max-width: 1280px;
   margin: 0 auto;
+  @include query(md) {
+    padding: 0 4rem;
+  }
 }
 
 .fade-in {
@@ -26,10 +29,14 @@
 
 .card-container {
   cursor: pointer;
-  width: 150px;
-  height: 150px;
+  width: 65px;
+  height: 70px;
   margin: 0.5rem;
   user-select: none;
+  @include query(md) {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 .card-content {
@@ -48,31 +55,39 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #0b466b;
+  background-color: #0b466bc8;
   position: absolute;
   backface-visibility: hidden;
   img {
     border-radius: inherit;
     width: 100%;
     height: 100%;
-    border: 1.5px solid silver;
+    border: 1.5px solid $green-clr;
+  }
+}
+
+.card-front {
+  padding: 0.9rem;
+  @include query(md) {
+    padding: 2rem;
   }
 }
 
 .card-back {
-  background-color: rgb(43, 172, 129);
   position: relative;
   transform: rotateY(180deg);
 
-  p {
+  span {
+    padding: 4px;
     position: absolute;
+    font-weight: 700;
     bottom: 0;
     color: white;
-    background-color: black;
     z-index: 10;
     text-transform: uppercase;
-    filter: drop-shadow(0 0 3px black);
-    font-size: calc(2px + 1vmin);
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px black, 0 0 1em $green-clr, 0 0 0.2em $green-clr;
+    font-size: calc(4px + 1vmin);
   }
 }
 
@@ -82,18 +97,27 @@
 
 .score,
 .streak {
-  font-size: 1.5rem;
+  font-size: 0.5rem;
   text-transform: uppercase;
   position: absolute;
   font-family: 'Press Start 2p', sans-serif;
+  @include query(md) {
+    font-size: 1.5rem;
+  }
 }
 .score {
-  bottom: -1rem;
+  bottom: 0;
   right: 0;
+  @include query(md) {
+    font-size: 1.5rem;
+  }
 }
 .streak {
   display: flex;
   gap: 2rem;
-  bottom: -1rem;
+  bottom: 0;
   left: 0;
+  @include query(md) {
+    font-size: 1.5rem;
+  }
 }
