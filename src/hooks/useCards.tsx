@@ -8,12 +8,12 @@ import {
   SECOND_CLICK,
 } from '../features/board/boardSlice'
 import { CharacterAdapted } from '../models/character.model'
-import flippedFile from '../assets/audios/flipped.mp3'
+
 import matchFile from '../assets/audios/match.mp3'
 export const useCards = () => {
   const state = useAppSelector((state) => state.board)
   const dispatch = useAppDispatch()
-  const flippedAudio = new Audio(flippedFile)
+
   const matchAudio = new Audio(matchFile)
   useEffect(() => {
     if (state.secondCard) checkMatch()
@@ -23,8 +23,6 @@ export const useCards = () => {
     if (state.lockBoard) return
     // Avoid check the same card
     if (cardSelected.flipped) return
-
-    flippedAudio.play()
 
     // First Click
     if (!state.hasFlippedCard) {
