@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { startLoadingCards } from './boardSlice'
 
@@ -9,17 +9,16 @@ import ListCardsMemo from '../listCards/ListCards'
 import Modal from '../modal/Modal'
 import Message from '../message/Message'
 import Controls from '../controls/Controls'
-import { userStats } from '../../models/userStats.model'
+import Stats from '../stats/Stats'
 
 const Board = () => {
   const dispatch = useAppDispatch()
   const state = useAppSelector((state) => state.board)
   const initTime = 60000
   const [time, setTime] = useState(initTime)
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const record: userStats = useMemo(() => JSON.parse(localStorage.getItem('userStats')!) ?? 0, [])
+
   useEffect(() => {
-    dispatch(startLoadingCards(12))
+    dispatch(startLoadingCards(2))
   }, [])
 
   const { loadingImages, setLoading, onComplete } = useOnCompleteImage()
@@ -37,7 +36,12 @@ const Board = () => {
       {state.cards.length ? (
         <>
           {loadingImages && <Spinner message='Loading Images please wait' />}
-          {!loadingImages ? <TimerBar duration={time} setDuration={setTime} /> : null}
+          {!loadingImages && time > 0 && state.flipedcards !== state.cards.length ? (
+            <>
+              <TimerBar duration={time} setDuration={setTime} />
+              <Stats />
+            </>
+          ) : null}
 
           <ListCardsMemo loading={loadingImages} onComplete={onCompleteMemo} />
 
@@ -57,13 +61,6 @@ const Board = () => {
               </Message>
             </Modal>
           ) : null}
-          <div className='streak'>
-            <span>Streak:{state.streak}</span>
-            <span>Score:{state.score}</span>
-          </div>
-          <div className='score'>
-            <span>Record:{record.score}</span>
-          </div>
         </>
       ) : (
         <Spinner message='Loading...' />

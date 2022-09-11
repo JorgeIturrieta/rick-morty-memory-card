@@ -13,8 +13,8 @@ const TimerBar: FunctionComponent<TimeBarProps> = ({ duration, setDuration }) =>
 
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.code === 'Escape') {
+      dispatch(LOCK_BOARD(start))
       setStart((prev) => {
-        dispatch(LOCK_BOARD(prev))
         return !prev
       })
     }

@@ -39,7 +39,7 @@ const Controls: FunctionComponent<ControlProps> = ({ setReload, time }) => {
 
   const handleRetry = () => {
     setReload()
-    dispatch(startLoadingCards(12))
+    dispatch(startLoadingCards(2))
   }
   const handleMainMenu = () => {
     dispatch(RESET())
