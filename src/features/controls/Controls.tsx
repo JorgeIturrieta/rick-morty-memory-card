@@ -8,8 +8,9 @@ import { userStats } from '../../models/userStats.model'
 type ControlProps = {
   setReload: () => void
   time: number
+  totalCards: number
 }
-const Controls: FunctionComponent<ControlProps> = ({ setReload, time }) => {
+const Controls: FunctionComponent<ControlProps> = ({ setReload, time, totalCards }) => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const state = useAppSelector((state) => state.board)
@@ -39,7 +40,7 @@ const Controls: FunctionComponent<ControlProps> = ({ setReload, time }) => {
 
   const handleRetry = () => {
     setReload()
-    dispatch(startLoadingCards(2))
+    dispatch(startLoadingCards(totalCards))
   }
   const handleMainMenu = () => {
     dispatch(RESET())

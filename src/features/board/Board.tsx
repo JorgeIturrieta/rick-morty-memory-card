@@ -15,10 +15,11 @@ const Board = () => {
   const dispatch = useAppDispatch()
   const state = useAppSelector((state) => state.board)
   const initTime = 60000
+  const totalCards = 12
   const [time, setTime] = useState(initTime)
 
   useEffect(() => {
-    dispatch(startLoadingCards(2))
+    dispatch(startLoadingCards(totalCards))
   }, [])
 
   const { loadingImages, setLoading, onComplete } = useOnCompleteImage()
@@ -49,7 +50,11 @@ const Board = () => {
           {state.flipedcards === state.cards.length ? (
             <Modal>
               <Message message='congrats!! you won the game'>
-                <Controls setReload={handleReload} time={(initTime - time) / 1000} />
+                <Controls
+                  setReload={handleReload}
+                  time={(initTime - time) / 1000}
+                  totalCards={totalCards}
+                />
               </Message>
             </Modal>
           ) : null}
@@ -57,7 +62,7 @@ const Board = () => {
           {!time ? (
             <Modal>
               <Message message='game over'>
-                <Controls setReload={handleReload} time={initTime / 1000} />
+                <Controls setReload={handleReload} time={initTime / 1000} totalCards={totalCards} />
               </Message>
             </Modal>
           ) : null}
