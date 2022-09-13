@@ -10,6 +10,7 @@ import Modal from '../modal/Modal'
 import Message from '../message/Message'
 import Controls from '../controls/Controls'
 import Stats from '../stats/Stats'
+import Bonus from '../bonus/Bonus'
 
 const Board = () => {
   const dispatch = useAppDispatch()
@@ -33,44 +34,51 @@ const Board = () => {
   if (state.errorMessage) return <p>{state.errorMessage}</p>
 
   return (
-    <main>
-      {state.cards.length ? (
-        <>
-          {loadingImages && <Spinner message='Loading Images please wait' />}
-          {!loadingImages && time > 0 && state.flipedcards !== state.cards.length ? (
-            <>
-              <TimerBar duration={time} setDuration={setTime} />
-              <Stats />
-            </>
-          ) : null}
+    <>
+      <main>
+        {state.cards.length ? (
+          <>
+            {loadingImages && <Spinner message='Loading Images please wait' />}
+            {!loadingImages && time > 0 && state.flipedcards !== state.cards.length ? (
+              <>
+                <TimerBar duration={time} setDuration={setTime} />
+                <Stats />
+              </>
+            ) : null}
 
-          <ListCardsMemo loading={loadingImages} onComplete={onCompleteMemo} />
+            <ListCardsMemo loading={loadingImages} onComplete={onCompleteMemo} />
 
-          {/* you won the game */}
-          {state.flipedcards === state.cards.length ? (
-            <Modal>
-              <Message message='congrats!! you won the game'>
-                <Controls
-                  setReload={handleReload}
-                  time={(initTime - time) / 1000}
-                  totalCards={totalCards}
-                />
-              </Message>
-            </Modal>
-          ) : null}
-          {/* you lost the game */}
-          {!time ? (
-            <Modal>
-              <Message message='game over'>
-                <Controls setReload={handleReload} time={initTime / 1000} totalCards={totalCards} />
-              </Message>
-            </Modal>
-          ) : null}
-        </>
-      ) : (
-        <Spinner message='Loading...' />
-      )}
-    </main>
+            {/* you won the game */}
+            {state.flipedcards === state.cards.length ? (
+              <Modal>
+                <Message message='congrats!! you won the game'>
+                  <Controls
+                    setReload={handleReload}
+                    time={(initTime - time) / 1000}
+                    totalCards={totalCards}
+                  />
+                </Message>
+              </Modal>
+            ) : null}
+            {/* you lost the game */}
+            {!time ? (
+              <Modal>
+                <Message message='game over'>
+                  <Controls
+                    setReload={handleReload}
+                    time={initTime / 1000}
+                    totalCards={totalCards}
+                  />
+                </Message>
+              </Modal>
+            ) : null}
+          </>
+        ) : (
+          <Spinner message='Loading...' />
+        )}
+      </main>
+      <Bonus />
+    </>
   )
 }
 
