@@ -1,7 +1,9 @@
+@import '../../styles/variables';
+
 .title {
   font-size: 1.8rem;
   text-transform: uppercase;
-  color: rgb(99, 156, 25);
+  color: $green-clr;
 }
 .messageContainer {
   font-size: 1.2rem;
@@ -15,5 +17,9 @@
   .statsTitle {
     font-weight: bold;
     font-size: 1.5rem;
+    span {
+      font-weight: 400;
+      color: $green-clr;
+    }
   }
 }

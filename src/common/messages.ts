@@ -6,7 +6,7 @@ export const messages = [
   },
 
   {
-    title: 'Stats',
+    title: 'Best Record',
     message: 'User stats',
   },
 ]

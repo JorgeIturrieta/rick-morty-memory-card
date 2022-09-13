@@ -8,9 +8,13 @@ const StatsMessage = () => {
 
   return (
     <div className={styles.statsContainer}>
-      <p className={styles.statsTitle}>Score: {stats ? stats.score : ' - '}</p>
+      <p className={styles.statsTitle}>
+        Score: {stats ? <span>{stats.score} </span> : <span> - </span>}
+      </p>
 
-      <p className={styles.statsTitle}>Time: {stats ? `${stats.time} seconds` : '  - '}</p>
+      <p className={styles.statsTitle}>
+        Time: {stats ? <span>{stats.time}sec</span> : <span> - </span>}
+      </p>
     </div>
   )
 }
