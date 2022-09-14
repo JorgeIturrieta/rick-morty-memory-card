@@ -8,7 +8,7 @@ const Bonus = () => {
 
   useEffect(() => {
     let interval = 0
-    if (streak === 2) {
+    if (streak === 1) {
       setHide(false)
       interval = setInterval(() => {
         setHide(true)

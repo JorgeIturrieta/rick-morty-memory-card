@@ -7,6 +7,7 @@
   margin: 0 auto;
   @include query(md) {
     padding: 0 4rem;
+    margin-bottom: 1rem;
   }
 }
 
