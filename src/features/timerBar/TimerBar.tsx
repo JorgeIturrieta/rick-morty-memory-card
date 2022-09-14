@@ -2,6 +2,9 @@ import style from './TimerBar.module.scss'
 import { FunctionComponent, useEffect, useState } from 'react'
 import { useAppDispatch } from '../../app/hooks'
 import { LOCK_BOARD } from '../board/boardSlice'
+import Modal from '../modal/Modal'
+
+import Message from '../message/Message'
 
 type TimeBarProps = {
   duration: number
@@ -50,6 +53,18 @@ const TimerBar: FunctionComponent<TimeBarProps> = ({ duration, setDuration }) =>
       <span>{('0' + Math.floor((duration / 60000) % 60) + ':').slice(-3)}</span>
       <span>{('0' + Math.floor((duration / 1000) % 60) + '.').slice(-3)}</span>
       <span>{('0' + ((duration / 10) % 1000)).slice(-2)}</span>
+      <span className={style.btnPause} onClick={() => setStart(!start)}>
+        {' '}
+        {start ? '⏸️' : '▶️'}
+      </span>
+
+      {!start && (
+        <Modal>
+          <Message message='paused'>
+            <button onClick={() => setStart(!start)}>Resume</button>
+          </Message>
+        </Modal>
+      )}
     </div>
   )
 }

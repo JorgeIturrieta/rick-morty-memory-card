@@ -9,8 +9,12 @@
     filter: drop-shadow(0 0 3px $green-clr);
     transform-origin: left center;
     animation: roundtime calc(var(--timer) * 1ms) linear forwards;
+    margin-bottom: 16px;
   }
 
+  .btnPause {
+    cursor: pointer;
+  }
   .paused {
     animation-play-state: paused;
   }
