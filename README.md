@@ -1,6 +1,6 @@
 # Rick and Morty Memory Card
 
-This aplication is a challenge for the Hackathon of Gentleman Programming.
+This aplication is a challenge for the Hackathon of [Gentleman Programming](https://www.youtube.com/c/GentlemanProgramming).
 
 ## What this application is about?
 
